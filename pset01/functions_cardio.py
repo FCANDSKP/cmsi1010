@@ -28,8 +28,15 @@ def print_square(n):
     ***
     ***
     """
-    # replace the pass statement with your code
-    pass
+
+    # We want the expression n^n somewhere in the code to get increasing square size for value n
+    # The above statement was wrong apparently it was actually just n+n 
+
+    def print_square(n):
+        for count in range(n, n+n):
+            print("*" * n)
+
+    print_square()
 
 
 def is_odd(n):
