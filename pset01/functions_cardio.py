@@ -41,8 +41,11 @@ def is_odd(n):
     """
     Return True if n is odd, False otherwise.
     """
-    # replace the pass statement with your code
-    pass
+    if n % 2 == 0:
+        print("False")
+    else:
+        print("True")
+is_odd()
 
 
 def median_of_three(a, b, c):
