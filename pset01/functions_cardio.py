@@ -19,7 +19,7 @@
 # ----------------------------------------------------------------------
 
 
-def print_square(n):
+def print_square(n): 
     """
     Print a square of asterisks with side length n.
 
@@ -28,10 +28,8 @@ def print_square(n):
     ***
     ***
     """
-
     for count in range(n, n+n):
         print("*" * n)
-
 print_square()
 
     # Personal Comments:
