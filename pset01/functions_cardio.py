@@ -20,11 +20,6 @@
 
 
 def print_square(n):
-    for count in range(n, n+n):
-        print("*" * n)
-
-print_square()
-    
     """
     Print a square of asterisks with side length n.
 
@@ -33,6 +28,11 @@ print_square()
     ***
     ***
     """
+
+    for count in range(n, n+n):
+        print("*" * n)
+
+print_square()
 
     # Personal Comments:
     # We want the expression n^n somewhere in the code to get increasing square size for value n
