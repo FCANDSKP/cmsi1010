@@ -33,8 +33,8 @@ def print_square(n):
 print_square()
 
     # Personal Comments:
-    # We want the expression n^n somewhere in the code to get increasing square size for value n
-    # The above statement was wrong apparently it was actually just n+n 
+    # - We want the expression n^n somewhere in the code to get increasing square size for value n
+    # - The above statement was wrong apparently it was actually just n+n 
 
 
 def is_odd(n):
@@ -52,8 +52,18 @@ def median_of_three(a, b, c):
     """
     Return the median of three numbers a, b, and c.
     """
-    # replace the pass statement with your code
-    pass
+    if a<=b<=c:
+        print(b)
+    elif b<=a<=c:
+        print(a)
+    else:
+        print(c)
+median_of_three(25, 15, 35)
+
+    # Personal Comments:
+    # - I think you need to take advantage of elifs, each with the 
+    #   dependant situation on whether a, b, or c, is the median.
+    # - This was correct!
 
 
 def is_palindrome(s):
