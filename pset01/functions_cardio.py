@@ -58,7 +58,7 @@ def median_of_three(a, b, c):
         print(a)
     else:
         print(c)
-median_of_three(25, 15, 35)
+median_of_three()
 
     # Personal Comments:
     # - I think you need to take advantage of elifs, each with the 
@@ -74,8 +74,15 @@ def is_palindrome(s):
     implement it as a simple check to see if s is equal to its
     reversal.
     """
-    # replace the pass statement with your code
-    pass
+    if s[:]==s[:]:
+        print("True")
+    else:
+        print("False")
+is_palindrome()
+
+    # Personal Comments: 
+    # - I think its strings. We likely use two []'s and 
+    #   make one side check if the other is equal. 
 
 
 def factorial(n):
