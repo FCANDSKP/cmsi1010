@@ -58,8 +58,9 @@ def pet_animal(animal):
     else:
         print("Sorry, I don't know that animal")
 
-print("Welcome to the Petting Zoo!")
-print("Type 'help' to get a list of all the things you can do")
+print("Welcome to the Number Guesser!")
+print("Guess a number between 1 and 1000.")
+print("Type 'bye' or 'exit' to quit the program")
 print()
 keep_going = True
 while True:
@@ -71,8 +72,8 @@ while True:
     elif response.startswith("pet "):
         animal = response[4:].strip()
         pet_animal(animal)
-    elif response == "bye":
-        print("Goodbye!")
+    elif response == "bye" or response == "exit":
+        print("Successfully exited the program")
         break
     else:
         print("Sorry, I don't understand that command")
