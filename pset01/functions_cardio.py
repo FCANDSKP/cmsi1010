@@ -30,7 +30,6 @@ def print_square(n):
     """
     for count in range(n, n+n):
         print("*" * n)
-print_square()
 
     # Personal Comments:
     # - We want the expression n^n somewhere in the code to get increasing square size for value n
@@ -45,7 +44,6 @@ def is_odd(n):
         print("False")
     else:
         print("True")
-is_odd()
 
 
 def median_of_three(a, b, c):
@@ -58,7 +56,6 @@ def median_of_three(a, b, c):
         print(a)
     else:
         print(c)
-median_of_three()
 
     # Personal Comments:
     # - I think you need to take advantage of elifs, each with the 
@@ -78,7 +75,6 @@ def is_palindrome(s):
         print("True")
     else:
         print("False")
-is_palindrome()
 
     # Personal Comments: 
     # - I think its strings. We likely use two []'s and 
@@ -93,8 +89,13 @@ def factorial(n):
     positive integers less than or equal to n. Please implement this
     function with a for loop.
     """
-    # replace the pass statement with your code
-    pass
+    for count in range ():
+        print()
+
+    # Personal Comments:
+    # - An easy example for a factorial is 5!, which is 5*4*3*2*1 = 120. 
+    #   The statement "positive integers less than or equal to n" is likely
+    #   a hint that we need to use the sign <=
 
 
 def count_of_latin_vowels(s):
