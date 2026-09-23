@@ -91,7 +91,6 @@ def factorial(n):
     """
     for count in [n]:
         print(n*(n-1)*(n-(n-1))*(n-(n-(n-1))))
-factorial(3)
 
     # Personal Comments:
     # - An easy example for a factorial is 5!, which is 5*4*3*2*1 = 120. 
