@@ -41,21 +41,21 @@ def is_odd(n):
     Return True if n is odd, False otherwise.
     """
     if n % 2 == 0:
-        print("False")
+        return False
     else:
-        print("True")
+        return True
 
 
 def median_of_three(a, b, c):
     """
     Return the median of three numbers a, b, and c.
     """
-    if a<=b<=c:
-        print(b)
-    elif b<=a<=c:
-        print(a)
+    if a<=b<=c or c<=b<=a:
+        return b
+    elif b<=a<=c or c<=a<=b:
+        return a
     else:
-        print(c)
+        return c
 
     # Personal Comments:
     # - I think you need to take advantage of elifs, each with the 
@@ -71,10 +71,10 @@ def is_palindrome(s):
     implement it as a simple check to see if s is equal to its
     reversal.
     """
-    if s[:]==s[:]:
-        print("True")
+    if s[:]==s[::-1]:
+        return (True)
     else:
-        print("False")
+        return (False)
 
     # Personal Comments: 
     # - I think its strings. We likely use two []'s and 
@@ -92,12 +92,13 @@ def factorial(n):
     product = 1
     for i in range(1, n+1):
         product *= i
-    print (product)
+    return (product)
 
     # Personal Comments:
     # - An easy example for a factorial is 5!, which is 5*4*3*2*1 = 120. 
     #   The statement "positive integers less than or equal to n" is likely
     #   a hint that we need to use the sign <=
+    # - My thought process may have been one way, but the code I am using now works as well. 
 
 
 def count_of_latin_vowels(s):
@@ -107,8 +108,11 @@ def count_of_latin_vowels(s):
     The vowels are 'a', 'e', 'i', 'o', and 'u'. You can implement this
     function using a for loop to iterate through the string.
     """
-    # replace the pass statement with your code
-    pass
+    count = 0
+    for vowels in s:
+        if vowels.lower() in ["a", "e", "i", "o", "u"]:
+            count = count+1
+    return count
 
 
 def at_beginning_or_end(part, whole):
@@ -235,9 +239,9 @@ def test_collatz():
 test_print_square()
 test_is_odd()
 test_median_of_three()
-# test_factorial()
-# test_is_palindrome()
-# test_count_of_latin_vowels()
+test_factorial()
+test_is_palindrome()
+test_count_of_latin_vowels()
 # test_at_beginning_or_end()
 # test_longest_string()
 # test_collatz()
