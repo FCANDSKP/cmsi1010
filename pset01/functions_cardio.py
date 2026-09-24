@@ -29,7 +29,7 @@ def print_square(n):
     ***
     """
     for count in range(n, n+n):
-        return("*" * n)
+        print ("*" * n)
 
     # Personal Comments:
     # - We want the expression n^n somewhere in the code to get increasing square size for value n
@@ -41,9 +41,9 @@ def is_odd(n):
     Return True if n is odd, False otherwise.
     """
     if n % 2 == 0:
-        return("False")
+        print("False")
     else:
-        return("True")
+        print("True")
 
 
 def median_of_three(a, b, c):
@@ -51,11 +51,11 @@ def median_of_three(a, b, c):
     Return the median of three numbers a, b, and c.
     """
     if a<=b<=c:
-        return(b)
+        print(b)
     elif b<=a<=c:
-        return(a)
+        print(a)
     else:
-        return(c)
+        print(c)
 
     # Personal Comments:
     # - I think you need to take advantage of elifs, each with the 
@@ -72,9 +72,9 @@ def is_palindrome(s):
     reversal.
     """
     if s[:]==s[:]:
-        return("True")
+        print("True")
     else:
-        return("False")
+        print("False")
 
     # Personal Comments: 
     # - I think its strings. We likely use two []'s and 
@@ -92,7 +92,7 @@ def factorial(n):
     product = 1
     for i in range(1, n+1):
         product *= i
-    return product
+    print (product)
 
     # Personal Comments:
     # - An easy example for a factorial is 5!, which is 5*4*3*2*1 = 120. 
