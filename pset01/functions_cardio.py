@@ -139,6 +139,14 @@ def collatz(n):
     - The sequence ends when it reaches 1.
     """
 
+    cs = [n]
+    while n != 1:  
+        if n % 2 == 0:
+            n = n//2
+        else:
+            n = 3 * n + 1
+        cs.append(n)        
+    return cs
 
 
 def test_print_square():
@@ -238,5 +246,5 @@ test_is_palindrome()
 test_count_of_latin_vowels()
 test_at_beginning_or_end()
 test_longest_string()
-# test_collatz()
+test_collatz()
 print("All tests passed!")
