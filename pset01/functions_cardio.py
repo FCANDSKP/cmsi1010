@@ -119,7 +119,14 @@ def longest_string(strings):
     If there are multiple strings with the same maximum length, return
     the first one encountered.
     """
+    longest = strings[0]
+    for length in strings:
+        if len(length) > len(longest):
+            longest = length
+    return longest
 
+    # Personal Comments:
+    # - We should probably use something similar to the problem in counting vowels
 
 
 def collatz(n):
@@ -230,6 +237,6 @@ test_factorial()
 test_is_palindrome()
 test_count_of_latin_vowels()
 test_at_beginning_or_end()
-# test_longest_string()
+test_longest_string()
 # test_collatz()
 print("All tests passed!")
