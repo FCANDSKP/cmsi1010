@@ -25,12 +25,7 @@ import random
 random_number = range(1, 1001)
 current_random_number = random.choice(random_number) 
 
-def count_of_attempts(guess):
-    count = 0
-    for attempts in guess:
-        if guess != current_random_number:
-            count = count+1
-    print ("It took", count , "attempts to guess the correct number")
+count_of_attempts = 0
 
 print("Welcome to the Number Guesser!")
 print("Guess a number between 1 and 1000.")
@@ -38,7 +33,8 @@ print("Type 'bye' or 'exit' to quit the program")
 print()
 keep_going = True
 while True:
-    guess = input("Enter your number here:").strip()
+    guess = int(input("Enter your number here:").strip())
+    count_of_attempts += 1
     if guess > current_random_number:
         print("Too high!")
     elif guess < current_random_number:
