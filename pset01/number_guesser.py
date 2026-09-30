@@ -1,15 +1,3 @@
-# ----------------------------------------------------------------------
-# This is the file number_guesser.py
-#
-# The intent is to give you practice writing a complete, interactive
-# Python program.
-#
-# Remove ALL of the existing comments in this file prior to submission.
-# You can, and should, add your own comments, but please remove all the
-# comments that are here now.
-#
-# Things to do:
-#
 # Generate a random number between 1 and 1000.
 #
 # Ask the user to guess the number. In your prompt, let the user know they
@@ -33,30 +21,16 @@
 # exactly as given.
 # ----------------------------------------------------------------------
 
-def show_help():
-    print("Type 'help' to see this list again")
-    print("Type 'see' to see all the animals")
-    print("Type 'pet' followed by the animal's name to pet that animal")
-    print("Type 'bye' to leave the zoo and exit the program")
+import random
+random_number = range(1, 1001)
+current_random_number = random.choice(random_number) 
 
-def show_all_animals():
-    print("The animals in the zoo are:")
-    print("1. Clover the Bunny 🐇")
-    print("2. Coco the Baby Goat 🐐")
-    print("3. Arno the Alligator 🐊")
-    print("4. Dan the Duck 🦆")
-
-def pet_animal(animal):
-    if animal == ("Clover").strip().lower(): 
-        print("Clover is so happy! ❤️")
-    elif animal == ("Coco").strip().lower():
-        print("Coco the Baby Goat thanks you! 🥰")
-    elif animal == ("Arno").strip().lower(): 
-        print("Actually, we cannot allow you to pet Arno. ⛔️")
-    elif animal == ("Dan").strip().lower():
-        print("Dan the Duck quacks happily! 😊")
-    else:
-        print("Sorry, I don't know that animal")
+def count_of_attempts(guess):
+    count = 0
+    for attempts in guess:
+        if guess != current_random_number:
+            count = count+1
+    print ("It took", count , "attempts to guess the correct number")
 
 print("Welcome to the Number Guesser!")
 print("Guess a number between 1 and 1000.")
@@ -64,16 +38,16 @@ print("Type 'bye' or 'exit' to quit the program")
 print()
 keep_going = True
 while True:
-    response = input("What would you like to do?").strip().lower()
-    if response == "help":
-        show_help()
-    elif response == "see":
-        show_all_animals()
-    elif response.startswith("pet "):
-        animal = response[4:].strip()
-        pet_animal(animal)
-    elif response == "bye" or response == "exit":
+    guess = input("Enter your number here:").strip()
+    if guess > current_random_number:
+        print("Too high!")
+    elif guess < current_random_number:
+        print("Too low!")
+    elif guess == current_random_number:
+        print("Congratulations! You guessed the number!")
+        print(count_of_attempts)
+    elif guess == "bye" or guess == "exit":
         print("Successfully exited the program")
         break
     else:
-        print("Sorry, I don't understand that command")
+        print("Please enter a valid Number")
