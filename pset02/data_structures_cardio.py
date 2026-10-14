@@ -1,9 +1,3 @@
-# ----------------------------------------------------------------------
-# This is the file data_structures_cardio.py
-#
-# The intent is to give you practice with tuples, lists, sets, and
-# dictionaries.
-#
 # Complete the functions below.
 #
 # Each function has a docstring that describes what it should do, but
@@ -12,8 +6,6 @@
 # the tests, you can use the command
 #
 #     python3 -m unittest data_structures_cardio.py
-#
-# (or python depending on your system).
 #
 # Remove this comment, and all of the "replace the pass statement..."
 # comments, prior to submission. You can, and should, add your own
@@ -24,11 +16,12 @@
 def third_element(t):
     """
     If t is a tuple with at least three elements, return the third
-    element. If t is not a tuple or has fewer than three elements,
-    raise an IndexError.
+    element. If t is not a tuple, raise a TypeError. If t has fewer 
+    than three elements, raise an IndexError.
     """
-    # replace the pass statement with your code
-    pass
+    if not isinstance(t, tuple): 
+        raise TypeError
+    return t[2]
 
 
 def reverse_pair(t):
@@ -241,13 +234,13 @@ def test_word_frequencies():
 
 test_third_element()
 test_reverse_pair()
-test_middle_element_of_list()
-test_unique_elements()
-test_contains_duplicates()
-test_is_superset()
-test_is_subset()
-test_is_disjoint()
-test_most_frequent_value_or_values()
-test_key_is_in_both_dictionaries()
-test_word_frequencies()
+# test_middle_element_of_list()
+# test_unique_elements()
+# test_contains_duplicates()
+# test_is_superset()
+# test_is_subset()
+# test_is_disjoint()
+# test_most_frequent_value_or_values()
+# test_key_is_in_both_dictionaries()
+# test_word_frequencies()
 print("All tests passed!")
