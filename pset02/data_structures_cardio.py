@@ -37,6 +37,7 @@ def reverse_pair(t):
         raise ValueError
     return (t[1], t[0])
 
+
 def middle_element_of_list(a):
     """
     If a is a list with an odd number of elements, return the
@@ -236,7 +237,7 @@ def test_word_frequencies():
 
 test_third_element()
 test_reverse_pair()
-# test_middle_element_of_list()
+test_middle_element_of_list()
 # test_unique_elements()
 # test_contains_duplicates()
 # test_is_superset()
