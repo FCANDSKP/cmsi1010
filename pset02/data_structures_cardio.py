@@ -31,9 +31,11 @@ def reverse_pair(t):
     If t is a tuple with more or fewer than two elements, raise a
     ValueError.
     """
-    # replace the pass statement with your code
-    pass
-
+    if not isinstance(t, tuple): 
+        raise TypeError
+    if len(t) != 2:
+        raise ValueError
+    return (t[1], t[0])
 
 def middle_element_of_list(a):
     """
