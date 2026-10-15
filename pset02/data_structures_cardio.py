@@ -46,8 +46,16 @@ def middle_element_of_list(a):
     elements, raise an IndexError. If a is not a list, raise a
     TypeError.
     """
-    # replace the pass statement with your code
-    pass
+    if not middle_element_of_list:
+        raise IndexError
+    if not isinstance(a, list): 
+        raise TypeError
+    length = len(a)
+    mid_list = length // 2
+    if length % 2 == 0:
+        return a[mid_list - 1]
+    else:
+        return a[mid_list]
 
 
 def unique_elements(a):
@@ -55,8 +63,10 @@ def unique_elements(a):
     Return a set of unique elements from the input list a.
     If a is not a list, raise a TypeError.
     """
-    # replace the pass statement with your code
-    pass
+    if not isinstance (a, list):
+        raise TypeError
+    unique_set = set(a)
+    return unique_set
 
 
 def contains_duplicates(a):
@@ -64,8 +74,12 @@ def contains_duplicates(a):
     Return True if the input list a contains any duplicate elements,
     and False otherwise. If a is not a list, raise a TypeError.
     """
-    # replace the pass statement with your code
-    pass
+    if not isinstance (a, list):
+        raise TypeError
+    if len(a) != len(set(a)):
+        return True
+    else:
+        return False
 
 
 def is_superset(a, b):
@@ -73,8 +87,12 @@ def is_superset(a, b):
     Return True if set a is a superset of set b, and False otherwise.
     If either a or b is not a set, raise a TypeError.
     """
-    # replace the pass statement with your code
-    pass
+    if not isinstance (a, set) or not isinstance (b, set):
+        raise TypeError
+    if (a.issuperset(b)):
+        return True
+    else:
+        return False 
 
 
 def is_subset(a, b):
@@ -82,8 +100,6 @@ def is_subset(a, b):
     Return True if set a is a subset of set b, and False otherwise.
     If either a or b is not a set, raise a TypeError.
     """
-    # replace the pass statement with your code
-    pass
 
 
 def is_disjoint(a, b):
@@ -91,8 +107,6 @@ def is_disjoint(a, b):
     Return True if sets a and b are disjoint (i.e., have no elements in common),
     and False otherwise. If either a or b is not a set, raise a TypeError.
     """
-    # replace the pass statement with your code
-    pass
 
 
 def most_frequent_value_or_values(d):
@@ -103,8 +117,6 @@ def most_frequent_value_or_values(d):
     set (because there are no elements to count). If d is not a
     dictionary, raise a TypeError.
     """
-    # replace the pass statement with your code
-    pass
 
 
 def key_is_in_both_dictionaries(d1, d2, key):
@@ -113,8 +125,6 @@ def key_is_in_both_dictionaries(d1, d2, key):
     and False otherwise. If either d1 or d2 is not a dictionary,
     raise a TypeError.
     """
-    # replace the pass statement with your code
-    pass
 
 
 def word_frequencies(s):
@@ -128,8 +138,6 @@ def word_frequencies(s):
 
     If s is not a string, raise a TypeError.
     """
-    # replace the pass statement with your code
-    pass
 
 
 def _assert_raises(exception_type, func, *args):
@@ -238,9 +246,9 @@ def test_word_frequencies():
 test_third_element()
 test_reverse_pair()
 test_middle_element_of_list()
-# test_unique_elements()
-# test_contains_duplicates()
-# test_is_superset()
+test_unique_elements()
+test_contains_duplicates()
+test_is_superset()
 # test_is_subset()
 # test_is_disjoint()
 # test_most_frequent_value_or_values()

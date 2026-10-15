@@ -72,15 +72,15 @@ templates = [
         "author": "me"
     }, 
     {
-        "text": "The little kid shouted something about an adjective: verb: noun:",
+        "text": "The little kid shouted something about an :adjective :verb :noun",
         "author": "me"
     }, 
     {
-        "text": "person: always told me to :verb my friends",
+        "text": ":person always told me to :verb my friends",
         "author": "me"
     }, 
     {
-        "text": "Today is :month :date. Happy :noun day!",
+        "text": "Happy :noun day! Today is :month :date",
         "author": "me"
     }, 
 ]
