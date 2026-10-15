@@ -52,10 +52,7 @@ def middle_element_of_list(a):
         raise TypeError
     length = len(a)
     mid_list = length // 2
-    if length % 2 == 0:
-        return a[mid_list - 1]
-    else:
-        return a[mid_list]
+    return a[mid_list - 1] if length % 2 == 0 else a[mid_list]
 
 
 def unique_elements(a):
@@ -76,10 +73,7 @@ def contains_duplicates(a):
     """
     if not isinstance (a, list):
         raise TypeError
-    if len(a) != len(set(a)):
-        return True
-    else:
-        return False
+    return True if len(a) != len(set(a)) else False
 
 
 def is_superset(a, b):
@@ -89,10 +83,7 @@ def is_superset(a, b):
     """
     if not isinstance (a, set) or not isinstance (b, set):
         raise TypeError
-    if (a.issuperset(b)):
-        return True
-    else:
-        return False 
+    return True if (a.issuperset(b)) else False
 
 
 def is_subset(a, b):
@@ -100,6 +91,9 @@ def is_subset(a, b):
     Return True if set a is a subset of set b, and False otherwise.
     If either a or b is not a set, raise a TypeError.
     """
+    if not isinstance (a, set) or not isinstance (b, set):
+        raise TypeError
+    return True if (a.issubset(b)) else False
 
 
 def is_disjoint(a, b):
@@ -107,6 +101,9 @@ def is_disjoint(a, b):
     Return True if sets a and b are disjoint (i.e., have no elements in common),
     and False otherwise. If either a or b is not a set, raise a TypeError.
     """
+    if not isinstance (a, set) or not isinstance (b, set):
+        raise TypeError
+    return True if (a.isdisjoint(b)) else False
 
 
 def most_frequent_value_or_values(d):
@@ -117,6 +114,15 @@ def most_frequent_value_or_values(d):
     set (because there are no elements to count). If d is not a
     dictionary, raise a TypeError.
     """
+    if not isinstance (d, dict):
+        raise TypeError
+    from collections import Counter 
+    if not d:
+        return set()
+    counts = Counter(d.values())
+    max_freq = max(counts.values())
+    return {val for val, count in counts.items() if count == max_freq}
+
 
 
 def key_is_in_both_dictionaries(d1, d2, key):
@@ -125,6 +131,9 @@ def key_is_in_both_dictionaries(d1, d2, key):
     and False otherwise. If either d1 or d2 is not a dictionary,
     raise a TypeError.
     """
+    if not isinstance (d1, dict) or not isinstance (d2, dict): 
+        raise TypeError
+    return True if key in d1 and key in d2 else False
 
 
 def word_frequencies(s):
@@ -138,6 +147,11 @@ def word_frequencies(s):
 
     If s is not a string, raise a TypeError.
     """
+    if not isinstance(s, str):
+        raise TypeError
+    from collections import Counter 
+    words = s.lower().split()
+    return dict(Counter(words))
 
 
 def _assert_raises(exception_type, func, *args):
@@ -249,9 +263,9 @@ test_middle_element_of_list()
 test_unique_elements()
 test_contains_duplicates()
 test_is_superset()
-# test_is_subset()
-# test_is_disjoint()
-# test_most_frequent_value_or_values()
-# test_key_is_in_both_dictionaries()
-# test_word_frequencies()
+test_is_subset()
+test_is_disjoint()
+test_most_frequent_value_or_values()
+test_key_is_in_both_dictionaries()
+test_word_frequencies()
 print("All tests passed!")
