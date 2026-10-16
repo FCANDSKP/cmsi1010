@@ -1,47 +1,3 @@
-# ----------------------------------------------------------------------
-# This is the file mad_libs.py
-#
-# The intent is to give you practice writing a complete, interactive
-# Python program using a lot of Python data types, especially lists,
-# sets, and dictionaries.
-#
-# Remove ALL of the existing comments in this file prior to submission.
-# You can, and should, add your own comments, but please remove all the
-# comments that are here now.
-#
-# Things to do:
-#
-# Define a bunch of templates in which some of the words begin with a colon (:).
-# The words that begin with a colon are the words that you will ask the user
-# to fill in. An example of a template is:
-#
-#     "The :color :animal :action over the :adjective :plant."
-#
-# You should define a list of at least 10 templates. Be creative!
-#
-# Your app should begin by selecting a random template. Then, for each word
-# that begins with a colon in the template, prompt the user for a word
-# that fits the description. Make sure that their input is between 1 and 30
-# characters long, to prevent them from making too much of a mess of things.
-#
-# After the user has filled in all of the words, print the completed
-# template with the user's words filled in. Then after a blank line, print
-# a line crediting the author of the template. Then, print a couple of blank
-# lines and ask them if they want to play again. If they say "yes" (or "sí"
-# or "oui") or any acceptable version of an affirmative answer, start over
-# with a new random template. Otherwise, say "no", print "Thanks for playing!"
-# and exit the program.
-#
-# Here are some constraints:
-#
-#   1. The templates should be a list of dictionaries, in which each entry
-#      has a "text" fields and an "author" field. The "text" field should
-#      contain the template string, and the "author" field should contain
-#      the name of the person who wrote the template.
-#
-#   2. The possible "yes" answers should be stored in a set.
-# ----------------------------------------------------------------------
-
 templates = [
     {
         "text": "A :adjective ghost is behind you!", 
@@ -57,36 +13,54 @@ templates = [
     }, 
     {
         "text": "This years haunted house is at :location",
-        "author": "me"
+        "author": "kp"
     }, 
     {
         "text": "The monster :verb the :number :food",
-        "author": "me"
+        "author": "kp"
     }, 
     {
         "text": "We :verb to the :location, where we discovered a :object on the floor",
-        "author": "me"
+        "author": "kp"
     }, 
     {
         "text": "Theres :number :food for you to grab, but you can only have them if you can find the :object",
-        "author": "me"
+        "author": "kp"
     }, 
     {
-        "text": "The little kid shouted something about an :adjective :verb :noun",
-        "author": "me"
+        "text": "The little kid shouted something about a :adjective :verb :noun",
+        "author": "kp"
     }, 
     {
-        "text": ":person always told me to :verb my friends",
-        "author": "me"
+        "text": ":person always told me to :verb with my friends",
+        "author": "kp"
     }, 
     {
         "text": "Happy :noun day! Today is :month :date",
-        "author": "me"
+        "author": "kp"
     }, 
 ]
 
 yes_answers = {"yes", "si", "oui" "yup", "bet", "yep", "Y"}
 
-import random         
-current_template = random.choice(templates)
-print(current_template)
+import random
+import re
+
+while True:
+    current_template = random.choice(templates)
+    text = current_template["text"]
+    for word in re.findall(r":([A-Za-z]+)", text):
+        while True:
+            answer = input(f"Enter a {word} with 1-30 characters: ").strip()
+            if 1 <= len(answer) <= 30: 
+                break
+            print("Error: Input not within limit")
+        text = text.replace(f":{word}", answer, 1)
+
+    print(text)
+    print(f"\nAuthor: {current_template['author']}")
+
+    play_again = input("\n\n\nWould you like to play again? ").strip().casefold()
+    if play_again not in yes_answers:
+        print("Thank you for playing!")
+        break
