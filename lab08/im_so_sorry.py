@@ -13,3 +13,12 @@ def sum_of_digits(n):
 print(sum_of_digits(1234))
 print(sum_of_digits(1588))
 print(sum_of_digits(-48729))
+
+def print_count_down(n):
+    if n == 0:
+        print("BOOM")
+    else:
+        print (n) 
+        print_count_down(n-1)
+
+print_count_down(10)
