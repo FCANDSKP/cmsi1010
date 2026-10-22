@@ -1,5 +1,7 @@
 # Lab 09: Family Archives
 
-In this lab we creative a family tree with 
+In this lab we creative a family tree where we can get a persons birthdate, deathdate, mom, and dad. 
 
-The key terms of this lab are Classes, 
+Classes are new types
+
+Functions that are inside classes are called methods
