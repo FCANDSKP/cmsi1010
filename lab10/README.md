@@ -1,6 +1,6 @@
-# Lab 09: Family Archives
+# Lab 10: Family Tree
 
-In this lab we creative a family tree where we can get a persons birthdate, deathdate, mom, and dad. 
+In this lab, we learned about classes and data structures. We creative a family tree where we can get a persons birthdate, deathdate, mom, and dad. 
 
 Classes are new types
 
