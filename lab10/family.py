@@ -81,6 +81,7 @@ print(salvatore.is_sibling_of(louise)) # should be false
 print(santo.is_parent_of(salvatore)) # should be true
 print(leo.is_child_of(adele)) # should be false
 print(jeanne_c.is_grandparent_of(suzanne)) # should be true
+leo.print_family_tree()
 
 p3 = Person("Marie Ramos")
 p4 = Person("Jacques Martinez")
