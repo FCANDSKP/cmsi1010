@@ -18,12 +18,17 @@
 
 import math
 
-# Write a class called Rectangle, with attributes with and height,
+# Write a class called Rectangle, with attributes width and height,
 # and methods to calculate the area and perimeter. The class should
 # also have a __str__ method that returns a string representation
 # in a form you can infer from the unit tests below.
 
-# ...
+class Rectangle:
+    def __init__()
+
+    def area(width, height):
+
+    def perimeter():
 
 # Write a class called Circle, with an attribute radius,
 # and methods to calculate the area and circumference.
