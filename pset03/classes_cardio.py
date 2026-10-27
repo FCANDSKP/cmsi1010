@@ -35,7 +35,7 @@ class Rectangle:
 # Implement the __str__ method according to the unit tests
 # below.
 
-# ...
+class Circle: 
 
 
 # Write a class called Song, with attributes title, artist, and
@@ -44,8 +44,7 @@ class Rectangle:
 # according the unit tests below, and a method called play that
 # prints a message inferrable from the unit tests below.
 
-# ...
-
+class Song: 
 
 # Write a class called Playlist, which contains a list of Song
 # objects. The class should have methods to add a song, play all
@@ -54,7 +53,7 @@ class Rectangle:
 # (duration)s" and separated by a pipe character (|). If the playlist
 # is empty, the __str__ method should return "Playlist is empty."
 
-# ...
+class Playlist: 
 
 # Keep the following tests in your file. Use them as you do the work
 # in this assignment. (And remember to remove this comment before
