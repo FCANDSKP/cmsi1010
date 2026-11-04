@@ -31,3 +31,18 @@ def shuffled_deck():
 def deal_one_five_card_hand():
     deck = shuffled_deck()
     return set(deck[:5])
+
+
+def deal_two_five_card_hands():
+    deck = shuffled_deck()
+    return set(deck[:5]*2)
+
+def deal(number_of_hands, cards_per_hand):
+    if number_of_hands or cards_per_hand is not int:
+        raise TypeError
+    if number_of_hands or cards_per_hand <= 0:
+        raise ValueError
+    if number_of_hands * cards_per_hand > 52:
+        raise ValueError 
+    deck = shuffled_deck()
+    return set(deck(number_of_hands, cards_per_hand))
