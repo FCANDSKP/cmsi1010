@@ -1,5 +1,5 @@
 import pytest
-from cards import Card, standard_deck, shuffled_deck, deal_one_five_card_hand
+from cards import Card, standard_deck, shuffled_deck, deal_one_five_card_hand, deal
 
 def test_valid_cards():
     assert str(Card(suit="H", rank=10)) == "10♥"
@@ -76,3 +76,12 @@ def test_deal_two_five_card_hands():
     assert isinstance(hand, set)
     assert len(hand) == 5
     assert all(isinstance(card, Card)*2 for card in hand)
+
+def test_deal():
+    hands = deal(2, 3)
+    assert isinstance(hands, list)
+    assert len(hands) == 2
+    for hand in hands:
+        assert isinstance(hand, set)
+        assert len(hand) == 3
+        assert all(isinstance(card, Card) for card in hand)

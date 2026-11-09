@@ -38,11 +38,17 @@ def deal_two_five_card_hands():
     return set(deck[:5]*2)
 
 def deal(number_of_hands, cards_per_hand):
-    if number_of_hands or cards_per_hand is not int:
-        raise TypeError
-    if number_of_hands or cards_per_hand <= 0:
-        raise ValueError
+    if not isinstance(number_of_hands, int):
+        raise TypeError("Hands must be an int")
+    if not isinstance(cards_per_hand, int):
+        raise TypeError("Cards per hand must be an int")
+    if number_of_hands < 1 or cards_per_hand < 1:
+        raise ValueError("Needs a positive value")
     if number_of_hands * cards_per_hand > 52:
-        raise ValueError 
+        raise ValueError("I don't have that many cards")
+    result = []
     deck = shuffled_deck()
-    return set(deck(number_of_hands, cards_per_hand))
+    for hand in range(number_of_hands):
+        start = hand * cards_per_hand
+        result.append(set(deck[start:start + cards_per_hand]))
+    return result
