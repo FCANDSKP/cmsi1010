@@ -36,23 +36,43 @@ def deal_one_five_card_hand():
 
 
 def deal(number_of_hands, cards_per_hand):
-    # Return a list of sets, each containing the cards for one hand.
-    # You must validate the input parameters according to the test
-    # cases that you will find in cards_test.py. Make sure to remove
-    # this comment and the pass statement below before submitting.
-    pass
+    if not isinstance(number_of_hands, int):
+        raise TypeError("Hands must be an int")
+    if not isinstance(cards_per_hand, int):
+        raise TypeError("Cards per hand must be an int")
+    if number_of_hands < 1 or cards_per_hand < 1:
+        raise ValueError("Needs a positive value")
+    if number_of_hands * cards_per_hand > 52:
+        raise ValueError("I don't have that many cards")
+    result = []
+    deck = shuffled_deck()
+    for hand in range(number_of_hands):
+        start = hand * cards_per_hand
+        result.append(set(deck[start:start + cards_per_hand]))
+    return result
 
 
 def poker_classification(hand):
-    # Returns a string describing the poker hand. First, validate the input
-    # to make sure it is a set of 5 cards, and raise the appropriate error
-    # (TypeError or ValueError) if necessary.
-    #
-    # Then return one of the following strings:
-    # "High Card", "One Pair", "Two Pair", "Three of a Kind",
-    # "Straight", "Flush", "Full House", "Four of a Kind",
-    # "Straight Flush", "Royal Flush"
-    #
-    # Make sure to remove this comment and the pass statement below
-    # before submitting.
-    pass
+    if not hasattr(hand, '__len__') or len(hand) != 5:
+        raise ValueError("Hand must be a collection of exactly 5 cards")
+    if any(not isinstance(card, Card) for card in hand):
+        raise TypeError("Hand must contain only Card objects")
+
+    ranks = sorted(card.rank for card in hand)
+    counts = sorted((ranks.count(rank) for rank in set(ranks)), reverse=True)
+    flush = len({card.suit for card in hand}) == 1
+    straight = (ranks == [1, 10, 11, 12, 13]
+                or len(set(ranks)) == 5 and ranks[-1] - ranks[0] == 4)
+
+    categories = [
+        (straight and flush and set(ranks) == {1, 10, 11, 12, 13}, "Royal Flush"),
+        (straight and flush, "Straight Flush"),
+        (counts == [4, 1], "Four of a Kind"),
+        (counts == [3, 2], "Full House"),
+        (flush, "Flush"),
+        (straight, "Straight"),
+        (counts == [3, 1, 1], "Three of a Kind"),
+        (counts == [2, 2, 1], "Two Pair"),
+        (counts == [2, 1, 1, 1], "One Pair"),
+    ]
+    return next((name for matches, name in categories if matches), "High Card")
