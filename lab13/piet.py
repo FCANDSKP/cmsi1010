@@ -1,11 +1,14 @@
+"""A simple generator of Mondrian-style colored rectangles.
+Based on an original JavaScript implementation by Max Halford
+at https://maxhalford.github.io/blog/mondrian/
+"""
+
 import random
 import pygame
 
-pygame.init()
-WIDTH, HEIGHT = 800, 600
-screen = pygame.display.set_mode((WIDTH, HEIGHT))
-pygame.display.set_caption("Mondrian")
-
+SCREEN_WIDTH = 800
+SCREEN_HEIGHT = 600
+LEVELS = 5
 COLORS = [
     # Most of the squares will be white, so it’s included many times.
     # That way, the random.choice function will pick white with a
@@ -23,10 +26,14 @@ COLORS = [
     pygame.Color("green"),
 ]
 
+pygame.init()
+screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+pygame.display.set_caption("Mondrian")
+
 # We don't want any of the rectangles to be smaller than a percentage of
 # the width and height of the screen.
-X_PADDING = int(WIDTH * 0.05)
-Y_PADDING = int(HEIGHT * 0.05)
+X_PADDING = int(SCREEN_WIDTH * 0.05)
+Y_PADDING = int(SCREEN_HEIGHT * 0.05)
 LINE_WIDTH = 5
 
 
@@ -65,8 +72,8 @@ def draw_and_split(rect, depth):
 def draw_scene():
     # Clear screen then draw outer rectangle to take up the whole display
     screen.fill(pygame.Color("white"))
-    outer_rectangle = pygame.Rect(0, 0, WIDTH, HEIGHT)
-    draw_and_split(outer_rectangle, 5)
+    outer_rectangle = pygame.Rect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)
+    draw_and_split(outer_rectangle, LEVELS)
     pygame.display.flip()
 
 
