@@ -25,16 +25,14 @@ COLORS = [
     pygame.Color("yellow"),
     pygame.Color("green"),
 ]
-
-pygame.init()
-screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-pygame.display.set_caption("Mondrian")
-
 # We don't want any of the rectangles to be smaller than a percentage of
 # the width and height of the screen.
 X_PADDING = int(SCREEN_WIDTH * 0.05)
 Y_PADDING = int(SCREEN_HEIGHT * 0.05)
 LINE_WIDTH = 5
+pygame.init()
+screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+pygame.display.set_caption("Mondrian")
 
 
 def draw_and_split(rect, depth):
