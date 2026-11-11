@@ -2,6 +2,6 @@
 
 In this lab, we make a card game. 
 
-cards.py: Data classes, freezing, mapping, 
+cards.py teaches us about data classes, freezing, and mapping
 
-card_test.py: Automated unit tests, 
+card_test.py focuses on Automated unit tests and how to make our own tests.  
