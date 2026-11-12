@@ -37,26 +37,27 @@ def deal_one_five_card_hand():
 
 def deal(number_of_hands, cards_per_hand):
     if not isinstance(number_of_hands, int):
-        raise TypeError("Hands must be an int")
+        raise TypeError("Hands must be an integer")
     if not isinstance(cards_per_hand, int):
-        raise TypeError("Cards per hand must be an int")
+        raise TypeError("Cards per hand must be an integer")
     if number_of_hands < 1 or cards_per_hand < 1:
-        raise ValueError("Needs a positive value")
+        raise ValueError("Needs to at least be one")
     if number_of_hands * cards_per_hand > 52:
         raise ValueError("I don't have that many cards")
-    result = []
+    all_hands = []
     deck = shuffled_deck()
-    for hand in range(number_of_hands):
-        start = hand * cards_per_hand
-        result.append(set(deck[start:start + cards_per_hand]))
-    return result
+    for i in range(number_of_hands):
+        hand = set(deck[i*cards_per_hand: (i+1)*cards_per_hand])
+        all_hands.append(hand)
+    return all_hands
+
 
 
 def poker_classification(hand):
-    if not hasattr(hand, '__len__') or len(hand) != 5:
-        raise ValueError("Hand must be a collection of exactly 5 cards")
-    if any(not isinstance(card, Card) for card in hand):
-        raise TypeError("Hand must contain only Card objects")
+    if not isinstance(hand, set):
+        raise TypeError('Hand must be a set for poker')
+    if len(hand) != 5:
+        raise ValueError('Must have exactly 5 cards')
 
     ranks = sorted(card.rank for card in hand)
     counts = sorted((ranks.count(rank) for rank in set(ranks)), reverse=True)
@@ -76,3 +77,4 @@ def poker_classification(hand):
         (counts == [2, 1, 1, 1], "One Pair"),
     ]
     return next((name for matches, name in categories if matches), "High Card")
+
