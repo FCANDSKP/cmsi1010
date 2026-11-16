@@ -1,4 +1,4 @@
-# Lab13: Painting Like Piet
+# Lab 13: Painting Like Piet
 
 In this lab, we learn about Pygame. We start with how to draw a simple rectangle. Then, we make many rectangles of random shapes and sizes that are connected to eachother within the frame. 
 
